@@ -1,9 +1,9 @@
-SRC_DIR=${WORKSPACE}
+SRC_DIR="${WORKSPACE}"
 
 all: clean sloc test flakes lint clone
 
 sloc:
-	sloccount --duplicates --wide --details $(SRC_DIR) | fgrep -v .git > sloccount.sc || :
+	sloccount --duplicates --wide --details "$(SRC_DIR)" | fgrep -v .git > sloccount.sc || :
 
 test:
 	cd "$(SRC_DIR)" && nosetests --verbose --with-xunit --xunit-file=../xunit.xml --with-xcoverage --xcoverage-file=../coverage.xml || :

@@ -1,4 +1,4 @@
-SRC_DIR=.
+SRC_DIR=${WORKSPACE}
 
 all: clean sloc test flakes lint clone
 
